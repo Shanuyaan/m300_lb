@@ -32,6 +32,7 @@ config.vm.provision "shell", inline: <<-SHELL
   touch dateproc.sh
   echo "env TZ=CET-1 date > /var/www/html/processes" > dateproc.sh
   echo "ps aux >> /var/www/html/processes" >> dateproc.sh
- 
+  chmod +x /bashscripts/dateproc.sh
+  
 SHELL
 end
