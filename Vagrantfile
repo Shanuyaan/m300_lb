@@ -1,3 +1,18 @@
+##################################################################################
+#TBZ - M300 LB2 
+#
+#Author:            Shanuyaan Thangavadviel
+#Project:           Display current date and time + processes in website
+#Creation Date:     19.03.2021<
+#Description:       Simple webserver with vagrant                               
+#                   template (from github.com/mc-b/M300).                       
+#                   Creates a BASH-Script which displays                        
+#                   current date and time and processes.                        
+#                   Creates a automated cronjob for script execution            
+#                   every 2 minutes.                                           
+#                   Site is available at localhost:8080/processes
+################################################################################
+
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/xenial64"
   config.vm.network "forwarded_port", guest:80, host:8080, auto_correct: true
