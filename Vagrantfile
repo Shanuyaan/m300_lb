@@ -31,6 +31,7 @@ config.vm.provision "shell", inline: <<-SHELL
   #Create script to write current date and time, processes to textfile
   touch dateproc.sh
   echo "env TZ=CET-1 date > /var/www/html/processes" > dateproc.sh
+  echo "ps aux >> /var/www/html/processes" >> dateproc.sh
  
 SHELL
 end
