@@ -14,3 +14,10 @@ Im Modul 300 haben wir das Thema "Plattformübergreifende Dienste im Netzwerk in
 
 In meinem Projekt erstelle ich ein Webserver mit Ubuntu. Die Umsetztung ist nicht sehr komplex., jedoch erfüllt es jegliche Anforderungen. Eine VM (Virtualbox) wird nach dem "vagrant up" Befehl gestartet. Danach wird ein Skript erstellt, welches die Systemprozesse anzeigt. Dazu kommt dass die Daten mit Hilfe eines Cronjob immer aktuell bleiben.
 
+## Ablauf <a name="Ablauf"></a>
+
+- In das Verzeichnis wo das Vagrantfile sich befindet, dann dort Git Bash starten und **"vagrant up"** eingeben
+
+- Danach öffnet man eine Browser und gibt in der Suchleiste http://localhost:8080/enjoyit ein. 
+
+- Mit **"vagrant destroy"** wird die Maschine gelöscht.
