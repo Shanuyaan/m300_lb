@@ -14,6 +14,12 @@ Im Modul 300 haben wir das Thema "Plattformübergreifende Dienste im Netzwerk in
 
 In meinem Projekt erstelle ich ein Webserver mit Ubuntu. Die Umsetztung ist nicht sehr komplex., jedoch erfüllt es jegliche Anforderungen. Eine VM (Virtualbox) wird nach dem "vagrant up" Befehl gestartet. Danach wird ein Skript erstellt, welches die Systemprozesse anzeigt. Dazu kommt dass die Daten mit Hilfe eines Cronjob immer aktuell bleiben.
 
+## Tools die benötigt werden
+
+- [Vagrant](https://www.vagrantup.com/)
+- [Gitbash](https://git-scm.com/downloads)
+- [VirutalBox](https://www.virtualbox.org/)
+
 ## Ablauf <a name="Ablauf"></a>
 
 - In das Verzeichnis wo das Vagrantfile sich befindet, dann dort Git Bash starten und `vagrant up` eingeben
@@ -21,6 +27,10 @@ In meinem Projekt erstelle ich ein Webserver mit Ubuntu. Die Umsetztung ist nich
 - Danach öffnet man eine Browser und gibt in der Suchleiste `http://localhost:8080/enjoyit` ein. 
 
 - Mit `vagrant destroy` wird die Maschine gelöscht.
+
+ 
+## Grafische Übersicht mit Visio <a name="Visio"></a>
+![Grafische Übersicht](images/Netzplan.png)
 
 ## Code im Detail <a name="Code"></a>
 >`Vagrant.configure(2) do |config|`  
@@ -43,7 +53,7 @@ Die Synchronisierten Ordner werden direkt mit dem Hostsystem synchronisiert, als
 
 Da wird der Hypervisor definiert, in diesem Fall **VirtualBox**. Da wird auch direkt die Konfiguration in VirtualBox gestartet.
 
->`vb.memory = "512"`  
+>`vb.memory = "2048"`  
 
 Da wird der **Arbeitspeicher** der VM in MB definiert.
 
@@ -66,13 +76,13 @@ Es wird in das Root-Verzeichnis gewechselt und ein neuer Ordner **/bashscripts**
 
 Ein neues **Shell-Script wird angelegt**.
 
->`echo "env TZ=CET-1 date > /var/www/html/processes" > dateproc.sh`  
+>`echo "env TZ=CET-1 date > /var/www/enjoyit" > dateproc.sh`  
 
-Das aktuelle Datum in Zentral-Europäsischer Zeit wird in das File **/var/www/html/processes** geschrieben, der aktuelle Inhalt wird überschrieben.
+Das aktuelle Datum in Zentral-Europäsischer Zeit wird in das File **/var/www/enjoyit** geschrieben, der aktuelle Inhalt wird überschrieben.
 
->`echo "ps aux >> /var/www/html/processes" >> dateproc.sh`  
+>`echo "ps aux >> /var/www/enjoyit" >> dateproc.sh`  
 
-Die aktuellen Systemprozesse werden ins File **/var/www/html/processes** appendiert.
+Die aktuellen Systemprozesse werden ins File **/var/www/enjoyit** appendiert.
 
 >`chmod +x /bashscripts/dateproc.sh`  
 
@@ -102,10 +112,10 @@ Nach erneutem Laden sieht man, dass sich die Zeit geändert hat.
 
 ## Quellenverzeichnis <a name="Quellen"></a>
 
-- M300 Web-Template link: (https://github.com/mc-b/M300/tree/master/vagrant/web)
+- M300 Web-Template link: [Marco Berger Vagrant Templates](https://github.com/mc-b/M300/tree/master/vagrant/web)
 
-- Markdown Basic Syntax Link: (https://www.markdownguide.org/basic-syntax/)
+- Markdown Basic Syntax Link: [Markdownguide] (https://www.markdownguide.org/basic-syntax/)
 
-- Cronjob Link: (https://stackoverflow.com/questions/878600/how-to-create-a-cron-job-using-bash-automatically-without-the-interactive-editor)
+- Cronjob Link: [Stackeowerflow] (https://stackoverflow.com/questions/878600/how-to-create-a-cron-job-using-bash-automatically-without-the-interactive-editor)
 
-- Zeitzonen Command Link: (https://unix.stackexchange.com/questions/48101/how-can-i-have-date-output-the-time-from-a-different-timezone)
+- Zeitzonen Command Link: [unix.stackexchage] (https://unix.stackexchange.com/questions/48101/how-can-i-have-date-output-the-time-from-a-different-timezone)
