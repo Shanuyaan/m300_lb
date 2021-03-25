@@ -16,8 +16,9 @@ In meinem Projekt erstelle ich ein Webserver mit Ubuntu. Die Umsetztung ist nich
 
 ## Ablauf <a name="Ablauf"></a>
 
-- In das Verzeichnis wo das Vagrantfile sich befindet, dann dort Git Bash starten und **"vagrant up"** eingeben
+- In das Verzeichnis wo das Vagrantfile sich befindet, dann dort Git Bash starten und `vagrant up` eingeben
 
-- Danach öffnet man eine Browser und gibt in der Suchleiste http://localhost:8080/enjoyit ein. 
+- Danach öffnet man eine Browser und gibt in der Suchleiste `http://localhost:8080/enjoyit` ein. 
 
-- Mit **"vagrant destroy"** wird die Maschine gelöscht.
+- Mit `vagrant destroy` wird die Maschine gelöscht.
+
