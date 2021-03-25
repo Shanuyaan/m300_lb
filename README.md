@@ -85,3 +85,17 @@ Das Script wird initial ausgeführt, um direkt Ergebnisse zu erhalten.
 >`crontab -l | {  cat; echo "*/2 * * * * /bashscripts/dateproc.sh"; } | crontab -`  
 
 Ein Cronjob für das automatische Ausführen des Scripts wird erstellt. Das Skript wird duch das Format **"*/2 * * * * /bashscripts/dateproc.sh"** alle zwei Minuten ausgeführt.
+
+## Testen <a name="testen"></a>
+
+Zuerst öffnen sie das Verzeichnis in dem das Vagrantfile befindet und starten anschliessen Git Bash. Danach Befehl "Vagrant Up" eingeben:
+
+![Testing_1](images/vagrant.png)
+
+Danach geben Sie den Link im Browser ein und öffnen die Seite. 
+
+![Testing_2](images/test_1.png)
+
+Nach erneutem Laden sieht man, dass sich die Zeit geändert hat.
+
+![Testing_2](images/test_2.png)
