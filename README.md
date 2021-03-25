@@ -22,3 +22,66 @@ In meinem Projekt erstelle ich ein Webserver mit Ubuntu. Die Umsetztung ist nich
 
 - Mit `vagrant destroy` wird die Maschine gelöscht.
 
+## Code im Detail <a name="Code"></a>
+>`Vagrant.configure(2) do |config|`  
+
+Da wird die Konfiguration von der Vagrantbox gestartet. die **2** legt fest, dass die neuste Version von Vagrant verwendet wird.
+
+>`config.vm.box = "ubuntu/xenial64"`  
+
+Da wird das Betriebssystem der VM festgelegt, in diesem Falle eine **Ubuntu/Xenial 64-bit** Maschine.
+
+>`config.vm.network "forwarded_port", guest:80, host:8080, auto_correct: true`  
+
+Da wird die Portweiterleitung konfiguriert. Der Port 80 der VM wird auf den Port 8080 auf dem Hostsystem weitergeleitet. **auto_correct: true** legt fest, dass allfällige Kollisionen (z.B. falls Port 8080 auf dem Host bereits belegt ist) automatisch korrigiert werden.
+
+>`config.vm.synced_folder ".", "/var/www/html"`  
+
+Die Synchronisierten Ordner werden direkt mit dem Hostsystem synchronisiert, also sind die Files aus **/var/www/html** auch auf dem Hostsystem im Ordner mit dem Vagrantfile gespeichert werden.
+
+>`config.vm.provider "virtualbox" do |vb|`  
+
+Da wird der Hypervisor definiert, in diesem Fall **VirtualBox**. Da wird auch direkt die Konfiguration in VirtualBox gestartet.
+
+>`vb.memory = "512"`  
+
+Da wird der **Arbeitspeicher** der VM in MB definiert.
+
+>`config.vm.provision "shell", inline: <<-SHELL`  
+
+Die konfiguration in der Linux-Konsole wird gestartet.
+
+>`sudo apt-get update`  
+>`sudo apt-get -y install apache2`  
+
+Der **Appkatalog wird aktualisiert** und der **Apache-Webservice wird installiert**.
+
+>`cd /`  
+>`mkdir bashscripts`  
+>`cd bashscripts`  
+
+Es wird in das Root-Verzeichnis gewechselt und ein neuer Ordner **/bashscripts** erstellt, danach wird in diesen Ordner gewechselt.
+
+>`touch dateproc.sh`  
+
+Ein neues **Shell-Script wird angelegt**.
+
+>`echo "env TZ=CET-1 date > /var/www/html/processes" > dateproc.sh`  
+
+Das aktuelle Datum in Zentral-Europäsischer Zeit wird in das File **/var/www/html/processes** geschrieben, der aktuelle Inhalt wird überschrieben.
+
+>`echo "ps aux >> /var/www/html/processes" >> dateproc.sh`  
+
+Die aktuellen Systemprozesse werden ins File **/var/www/html/processes** appendiert.
+
+>`chmod +x /bashscripts/dateproc.sh`  
+
+**Executable-Rechte** werden auf das Script gegeben.
+
+>`./dateproc.sh`  
+
+Das Script wird initial ausgeführt, um direkt Ergebnisse zu erhalten.
+
+>`crontab -l | {  cat; echo "*/2 * * * * /bashscripts/dateproc.sh"; } | crontab -`  
+
+Ein Cronjob für das automatische Ausführen des Scripts wird erstellt. Das Skript wird duch das Format **"*/2 * * * * /bashscripts/dateproc.sh"** alle zwei Minuten ausgeführt.
