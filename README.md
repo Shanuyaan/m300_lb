@@ -114,8 +114,8 @@ Nach erneutem Laden sieht man, dass sich die Zeit geändert hat.
 
 - M300 Web-Template link: [Marco Berger Vagrant Templates](https://github.com/mc-b/M300/tree/master/vagrant/web)
 
-- Markdown Basic Syntax Link: [Markdownguide] (https://www.markdownguide.org/basic-syntax/)
+- Markdown Basic Syntax Link: [Markdownguide](https://www.markdownguide.org/basic-syntax/)
 
-- Cronjob Link: [Stackeowerflow] (https://stackoverflow.com/questions/878600/how-to-create-a-cron-job-using-bash-automatically-without-the-interactive-editor)
+- Cronjob Link: [Stackeowerflow](https://stackoverflow.com/questions/878600/how-to-create-a-cron-job-using-bash-automatically-without-the-interactive-editor)
 
-- Zeitzonen Command Link: [unix.stackexchage] (https://unix.stackexchange.com/questions/48101/how-can-i-have-date-output-the-time-from-a-different-timezone)
+- Zeitzonen Command Link: [unix.stackexchage](https://unix.stackexchange.com/questions/48101/how-can-i-have-date-output-the-time-from-a-different-timezone)
