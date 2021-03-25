@@ -1,2 +1,1 @@
-# m300_lb
-LB2
+![Titelblatt_M300](Images/M300_Titelblatt.png)
