@@ -1,13 +1,14 @@
 ![Titelblatt_M300](images/M300_Titelblatt.png)
 
 ## Inhaltsverzechnis
-1. [Einleitung](#Einleitung)
-2. [Service Beschreibung](#Service)
-3. [Service Anwendung](#Ablauf)
-4. [Grafische Übersicht](#Grafik)
-5. [Code Beschreibung](#Code)
-6. [Testen](#testen)
-7. [Quellenverzechnis](#Quellen)
+- [Inhaltsverzechnis](#inhaltsverzechnis)
+- [Einleitung <a name="Einleitung"></a>](#einleitung-)
+- [Service Anwendung <a name="Serive-an"></a>](#service-anwendung-)
+- [Service Beschreibung <a name="Service-be"></a>](#service-beschreibung-)
+- [Grafische Übersicht <a name="Grafik"></a>](#grafische-übersicht-)
+- [Code Beschreibung <a name="Code"></a>](#code-beschreibung-)
+- [Testen <a name="testen"></a>](#testen-)
+- [Quellenverzeichnis <a name="Quellen"></a>](#quellenverzeichnis-)
 
 ## Einleitung <a name="Einleitung"></a>
 
@@ -16,19 +17,36 @@ Dazu haben wir Docker und Docker-compose installiert.
 
 In meinem Projekt setzte ich, mit hilfe von docker-compose, einen Service auf. Nextcloud ist der Name von der Software. Da ich nicht den Service zum ersten mal höre musste ich vieles dazu nachlesen um herauszufinden, was der Service alles mit sich bringt.
 
-## Tools die benötigt werden
+## Service Anwendung <a name="Serive-an"></a>
 
-- [Vagrant](https://www.vagrantup.com/)
-- [Gitbash](https://git-scm.com/downloads)
-- [VirutalBox](https://www.virtualbox.org/)
+Um den Service Nextcloud zu nutzen braucht man zuerst eine laufende Docker umgebung mit Docker-compose.
 
-## Service Anwendung <a name="Ablauf"></a>
-
+- In das Verzeichnis wo sich das docker-compose.yml befindet.
+- `docker-compose up -d`
+- Danach öffnet man einen Browser und gibt in der Suchleiste `http:\\Docker-IP:8080\`
  
-## Service Beschreibung <a name="Service"></a>
+## Service Beschreibung <a name="Service-be"></a>
 
+Nextcloud ist eine kostenlose Open-Source-Cloud-Software, mit der seine Daten aif seinem eigenen Server verschlüsselt abspeichern kann. Nextcloud ist eine Alternative zu Cloud-Speicher wie Dropbox, Google Drive und OneDrive.
+Man kann mit Nextcloud ganz einfach seine Daten zuhause untereinander sharen und zugreifen.
 
 ## Grafische Übersicht <a name="Grafik"></a>
+
+
+## Code Beschreibung <a name="Code"></a>
+
+Am Anfang der Datei werden die Version der Konfigurationsdatei und drei Platzhalter für das Volume definiert.
+
+```code Anfang
+version: '3'
+
+volumes:
+  nextcloud:
+  db:
+
+```
+
+
 
 
 ## Testen <a name="testen"></a>
