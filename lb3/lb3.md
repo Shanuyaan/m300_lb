@@ -46,8 +46,60 @@ volumes:
 
 ```
 
+Als nächstes folgt die Definition der Dienste, aus denen der eigentliche Teil der Anwendung besteht
+
+Hier wird mit dem Öffnungstag `services:` begonnen, gefolgt von den einzelnen Diensten.
+
+Nextcloud braucht für den Betrieb eine Datenbank, in der sämtliche Metadaten gesichert werden. Für das nenne ich die Datenbank  `nextcloud-db`
+
+```Serivces
+ nextcloud-db:
+    image: mariadb
+    container_name: nextcloud-db
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=nextcoloud
+      - MYSQL_PASSWORD=nextcloud
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+```
+
+Es müssen lediglich die Umgebungsvariablen, speziell `MYSQL_ROOT_PASSWORD` und `MYSQL_PASSWORD` gesetzt werden
+
+Der Nextcloud-Container selbst wird als Service nextcloud beschrieben.
+
+```nextcloud
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - nextcloud-db
+    volumes:
+      - ./config:/var/www/html/config
+      - /nextcloud-data:/var/www/html/data
+      - ./apps:/var/www/html/apps
+      - ./custom_apps:/var/www/html/custom_apps
+```
+
+Hier sind keine weiteren Umgebungsvariablen zu setzen.
+
+Die einzelnen Tags innerhalb der Service-Definitionen haben folgende Bedeutung.
 
 
+| Tag           | Funktion      |
+| ------------- | ------------- |
+| image         | Das Image, welches von der Registry runtergeladen wird |
+| container_name     | Frindly-name für den Docker-Container |
+| restart | Neustart-Policy, hier wird der Container immer neugestartet wenn er nicht mehr läuft |
+| ports | Freigegebene Ports, damit der Container auch von außerhalb erreichbar ist, z.B. dem eigenen PC|
+| depends_on | 	Abhängigkeit von einem anderen Service, hier beispielhaft der zuvor definierten Datenbank. Der Container startet nur, wenn der andere Container vorhanden ist und läuft|
+| volumes | Definition der persistenten Datenspeicher |
+| environment | Umgebungvariablen, wie z.B. Passwörter oder Namen|
 
 ## Testen <a name="testen"></a>
 
