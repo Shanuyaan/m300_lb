@@ -102,7 +102,10 @@ Die einzelnen Tags innerhalb der Service-Definitionen haben folgende Bedeutung.
 | environment | Umgebungvariablen, wie z.B. Passwörter oder Namen|
 
 ## Testen <a name="testen"></a>
-
+|Testfall| Erwartung | Fall |
+|---------|----------|------|
+|In Verzeichnis das verzeichnis wo sich die yml datei befindet und dann: `docker-compose up -d`| Das Image wird installiert.| Das Image wird installiert ![image_intall](../images/image_intall)|
+|Im Borwser in der Suchleiste `http:\\Docker-IP:8080\` eingeben| Nextcloud login page erscheint| Nextcloud login page erschienen ![image_login](../images/nextcloud_loginl)|
 
 ## Quellenverzeichnis <a name="Quellen"></a>
 
