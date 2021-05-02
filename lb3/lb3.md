@@ -1,4 +1,4 @@
-![Titelblatt_M300](images/M300_Titelblatt.png)
+![Titelblatt_M300](./images/M300_Titelblatt.png)
 
 ## Inhaltsverzechnis
 - [Inhaltsverzechnis](#inhaltsverzechnis)
