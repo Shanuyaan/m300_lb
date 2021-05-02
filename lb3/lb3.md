@@ -32,6 +32,7 @@ Man kann mit Nextcloud ganz einfach seine Daten zuhause untereinander sharen und
 
 ## Grafische Übersicht <a name="Grafik"></a>
 
+![docker_u](../images/docker_plan.png)
 
 ## Code Beschreibung <a name="Code"></a>
 
@@ -109,3 +110,5 @@ Die einzelnen Tags innerhalb der Service-Definitionen haben folgende Bedeutung.
 
 ## Quellenverzeichnis <a name="Quellen"></a>
 
+- Nextcloud konfiguration: [docker-compose.yml](https://lehrerfortbildung-bw.de/st_digital/netz/virtual/container/docker/index.html)
+- DockerHub: [Nextcloud](https://hub.docker.com/_/nextcloud)
